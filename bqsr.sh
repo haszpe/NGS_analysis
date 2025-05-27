@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INPUT_DIR="Data/post_align"
-REF="/mnt/ngs-analysis/Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
+REF="./Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 OUTPUT_BASE_DIR="Data/BQSR"
 
 for FILE in "$INPUT_DIR"/*/*.final.bam; do
@@ -13,24 +13,34 @@ for FILE in "$INPUT_DIR"/*/*.final.bam; do
 
     mkdir -p "$OUTPUT_DIR"
 
-    RECAL_TABLE="$OUTPUT_DIR/${BASENAME}.recal.table"
-    RECAL_BAM="$OUTPUT_DIR/${BASENAME}.recal.bam"
+    RECAL_PREFIX="$OUTPUT_DIR/${BASENAME}_recal"
 
 
 	# Tutaj jest problem z referencyjnym a VCF - nazwy się nie zgadzają podobno, nie wiem jak to zmienić 
-
+    # Pobranie known sites : wget https://ftp.ensembl.org/pub/release-114/variation/vcf/homo_sapiens/homo_sapiens_somatic.vcf.gz
     gatk BaseRecalibrator \
         -I "$FILE" \
         -R "$REF" \
-        --known-sites Data/vcf/homo_sapiens-ch7.vcf \
-        -O "$RECAL_TABLE"
+        --known-sites "./Data/known_sites/homo_sapiens_somatic.vcf" \
+        -O "${RECAL_PREFIX}_raw.table"
 
     gatk ApplyBQSR \
         -R "$REF" \
         -I "$FILE" \
-        --bqsr-recal-file "$RECAL_TABLE" \
-        -O "$RECAL_BAM"
+        --bqsr-recal-file "${RECAL_PREFIX}_raw.table" \
+        -O "${RECAL_PREFIX}_bsqr.bam"
 
-    echo "BQSR completed for: $BASENAME"
+    gatk BaseRecalibrator \
+        -I "${RECAL_PREFIX}_bsqr.bam" \
+        -R "$REF" \
+        --known-sites "./Data/known_sites/homo_sapiens_somatic.vcf" \
+        -O "${RECAL_PREFIX}_after.table"
+
+    gatk AnalyzeCovariates \
+        -before "${RECAL_PREFIX}_raw.table" \
+        -after "${RECAL_PREFIX}_after.table" \
+        -plots "${RECAL_PREFIX}_covariates.pdf"
+
+    #echo "BQSR completed for: $BASENAME"
     echo "--------------------------------------------"
 done
