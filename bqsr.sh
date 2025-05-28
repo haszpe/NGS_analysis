@@ -18,6 +18,8 @@ for FILE in "$INPUT_DIR"/*/*.final.bam; do
 
 	# Tutaj jest problem z referencyjnym a VCF - nazwy się nie zgadzają podobno, nie wiem jak to zmienić 
     # Pobranie known sites : wget https://ftp.ensembl.org/pub/release-114/variation/vcf/homo_sapiens/homo_sapiens_somatic.vcf.gz
+    gatk IndexFeatureFile -I ./Data/known_sites/homo_sapiens_somatic.vcf
+
     gatk BaseRecalibrator \
         -I "$FILE" \
         -R "$REF" \
@@ -40,6 +42,12 @@ for FILE in "$INPUT_DIR"/*/*.final.bam; do
         -before "${RECAL_PREFIX}_raw.table" \
         -after "${RECAL_PREFIX}_after.table" \
         -plots "${RECAL_PREFIX}_covariates.pdf"
+
+    gatk HaplotypeCaller \
+        -R "$REF" \
+        -I "${RECAL_PREFIX}_bsqr.bam" \
+        -O "${RECAL_PREFIX}_variants.vcf.gz" \
+        -ERC GVCF
 
     #echo "BQSR completed for: $BASENAME"
     echo "--------------------------------------------"
