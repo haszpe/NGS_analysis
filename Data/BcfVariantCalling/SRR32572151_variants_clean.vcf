@@ -1,19 +1,21 @@
 ##fileformat=VCFv4.2
 ##ALT=<ID=*,Description="Represents allele(s) other than observed.">
 ##FILTER=<ID=HighDepth,Description="DP > 500">
+##FILTER=<ID=LowDepth,Description="DP < 10">
 ##FILTER=<ID=LowQual,Description="QUAL < 30.0">
 ##FILTER=<ID=MultiAllelic,Description="vc.getNAlleles() > 2">
 ##FILTER=<ID=PASS,Description="All filters passed">
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FORMAT=<ID=PL,Number=G,Type=Integer,Description="List of Phred-scaled genotype likelihoods">
-##GATKCommandLine=<ID=SelectVariants,CommandLine="SelectVariants --output Data/BcfVariantCalling/SRR32572151_variants_clean.vcf --exclude-filtered true --variant Data/BcfVariantCalling/SRR32572151_variants_filtered.vcf --reference /mnt/ngs-analysis/Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa --apply-jexl-filters-first false --invertSelect false --exclude-non-variants false --preserve-alleles false --remove-unused-alternates false --restrict-alleles-to ALL --keep-original-ac false --keep-original-dp false --mendelian-violation false --invert-mendelian-violation false --mendelian-violation-qual-threshold 0.0 --select-random-fraction 1.0 --remove-fraction-genotypes 0.0 --ignore-non-ref-in-types false --fully-decode false --max-indel-size 2147483647 --min-indel-size 0 --max-filtered-genotypes 2147483647 --min-filtered-genotypes 0 --max-fraction-filtered-genotypes 1.0 --min-fraction-filtered-genotypes 0.0 --max-nocall-number 2147483647 --max-nocall-fraction 1.0 --set-filtered-gt-to-nocall false --allow-nonoverlapping-command-line-samples false --suppress-reference-path false --fail-on-unsorted-genotype false --genomicsdb-max-alternate-alleles 50 --call-genotypes false --genomicsdb-use-bcf-codec false --genomicsdb-shared-posixfs-optimizations false --genomicsdb-use-gcs-hdfs-connector false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.5.0.0",Date="May 29, 2025 at 5:46:09 PM CEST">
-##GATKCommandLine=<ID=VariantFiltration,CommandLine="VariantFiltration --output Data/BcfVariantCalling/SRR32572151_variants_filtered.vcf --filter-expression QUAL < 30.0 --filter-expression DP > 500 --filter-expression vc.getNAlleles() > 2 --filter-name LowQual --filter-name HighDepth --filter-name MultiAllelic --variant Data/BcfVariantCalling/SRR32572151_variants.vcf --reference /mnt/ngs-analysis/Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa --cluster-size 3 --cluster-window-size 0 --mask-extension 0 --mask-name Mask --filter-not-in-mask false --missing-values-evaluate-as-failing false --invalidate-previous-filters false --invert-filter-expression false --invert-genotype-filter-expression false --set-filtered-genotype-to-no-call false --apply-allele-specific-filters false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.5.0.0",Date="May 29, 2025 at 5:46:08 PM CEST">
+##GATKCommandLine=<ID=SelectVariants,CommandLine="SelectVariants --output Data/BcfVariantCalling/SRR32572151_variants_clean.vcf --exclude-filtered true --variant Data/BcfVariantCalling/SRR32572151_variants_filtered.vcf --reference /mnt/ngs-analysis/Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa --apply-jexl-filters-first false --invertSelect false --exclude-non-variants false --preserve-alleles false --remove-unused-alternates false --restrict-alleles-to ALL --keep-original-ac false --keep-original-dp false --mendelian-violation false --invert-mendelian-violation false --mendelian-violation-qual-threshold 0.0 --select-random-fraction 1.0 --remove-fraction-genotypes 0.0 --ignore-non-ref-in-types false --fully-decode false --max-indel-size 2147483647 --min-indel-size 0 --max-filtered-genotypes 2147483647 --min-filtered-genotypes 0 --max-fraction-filtered-genotypes 1.0 --min-fraction-filtered-genotypes 0.0 --max-nocall-number 2147483647 --max-nocall-fraction 1.0 --set-filtered-gt-to-nocall false --allow-nonoverlapping-command-line-samples false --suppress-reference-path false --fail-on-unsorted-genotype false --genomicsdb-max-alternate-alleles 50 --call-genotypes false --genomicsdb-use-bcf-codec false --genomicsdb-shared-posixfs-optimizations false --genomicsdb-use-gcs-hdfs-connector false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.5.0.0",Date="May 29, 2025 at 11:10:25 PM CEST">
+##GATKCommandLine=<ID=VariantFiltration,CommandLine="VariantFiltration --output Data/BcfVariantCalling/SRR32572151_variants_filtered.vcf --filter-expression QUAL < 30.0 --filter-expression DP > 500 --filter-expression DP < 10 --filter-expression vc.getNAlleles() > 2 --filter-name LowQual --filter-name HighDepth --filter-name LowDepth --filter-name MultiAllelic --variant Data/BcfVariantCalling/SRR32572151_variants.vcf --reference /mnt/ngs-analysis/Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa --cluster-size 3 --cluster-window-size 0 --mask-extension 0 --mask-name Mask --filter-not-in-mask false --missing-values-evaluate-as-failing false --invalidate-previous-filters false --invert-filter-expression false --invert-genotype-filter-expression false --set-filtered-genotype-to-no-call false --apply-allele-specific-filters false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.5.0.0",Date="May 29, 2025 at 11:10:24 PM CEST">
 ##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
 ##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
 ##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
 ##INFO=<ID=BQBZ,Number=1,Type=Float,Description="Mann-Whitney U-z test of Base Quality Bias (closer to 0 is better)">
 ##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
 ##INFO=<ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+##INFO=<ID=FS,Number=1,Type=Float,Description="Phred-scaled p-value using Fisher's exact test to detect strand bias">
 ##INFO=<ID=IDV,Number=1,Type=Integer,Description="Maximum number of raw reads supporting an indel">
 ##INFO=<ID=IMF,Number=1,Type=Float,Description="Maximum fraction of raw reads supporting an indel">
 ##INFO=<ID=INDEL,Number=0,Type=Flag,Description="Indicates that the variant is an INDEL.">
@@ -23,12 +25,12 @@
 ##INFO=<ID=MQSBZ,Number=1,Type=Float,Description="Mann-Whitney U-z test of Mapping Quality vs Strand Bias (closer to 0 is better)">
 ##INFO=<ID=RPBZ,Number=1,Type=Float,Description="Mann-Whitney U-z test of Read Position Bias (closer to 0 is better)">
 ##INFO=<ID=SCBZ,Number=1,Type=Float,Description="Mann-Whitney U-z test of Soft-Clip Length Bias (closer to 0 is better)">
-##INFO=<ID=SGB,Number=1,Type=Float,Description="Segregation based metric, http://samtools.github.io/bcftools/rd-SegBias.pdf">
+##INFO=<ID=SGB,Number=1,Type=Float,Description="Segregation based metric.">
 ##INFO=<ID=VDB,Number=1,Type=Float,Description="Variant Distance Bias for filtering splice-site artefacts in RNA-seq data (bigger is better)",Version="3">
-##bcftoolsCommand=mpileup -Ou -f /mnt/ngs-analysis/Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa Data/BQSR/SRR32572151/SRR32572151_recal_bsqr.bam
-##bcftoolsVersion=1.19+htslib-1.19
-##bcftools_callCommand=call -mv -Oz -o Data/BcfVariantCalling/SRR32572151_variants.vcf.gz; Date=Thu May 29 16:49:17 2025
-##bcftools_callVersion=1.19+htslib-1.19
+##bcftoolsCommand=mpileup -Ou -f ./Data/ref_data/Homo_sapiens.GRCh38.dna.primary_assembly.fa Data/BQSR/SRR32572151/SRR32572151_recal_bsqr.bam
+##bcftoolsVersion=1.13+htslib-1.13+ds
+##bcftools_callCommand=call -mv -Oz -o ./Data/BcfVariantCalling/SRR32572151_variants.vcf.gz; Date=Thu May 29 20:26:57 2025
+##bcftools_callVersion=1.13+htslib-1.13+ds
 ##contig=<ID=1,length=248956422,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
 ##contig=<ID=10,length=133797422,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
 ##contig=<ID=11,length=135086622,assembly=Homo_sapiens.GRCh38.dna.primary_assembly.fa>
@@ -227,64 +229,44 @@
 ##source=SelectVariants
 ##source=VariantFiltration
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SRR32572151
-14	105644629	.	C	T	63.41	PASS	AC=2;AN=2;DP=6;DP4=0,0,3,1;MQ=27;MQ0F=0;MQSBZ=1.41421;SGB=-0.556411;VDB=0.0221621	GT:PL	1/1:93,12,0
-14	105648012	.	G	T	113.41	PASS	AC=2;AN=2;DP=9;DP4=0,0,3,6;MQ=34;MQ0F=0;MQSBZ=-2.43823;SGB=-0.662043;VDB=0.000166133	GT:PL	1/1:143,27,0
-14	105648340	.	C	G	133.64	PASS	AC=1;AN=2;BQBZ=-1.04673;DP=13;DP4=0,2,3,4;MQ=60;MQ0F=0;MQBZ=0;MQSBZ=0;RPBZ=0.614376;SCBZ=-2.08442;SGB=-0.636426;VDB=0.000126286	GT:PL	0/1:167,0,66
-14	105775662	.	G	T	47.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,1,1;MQ=44;MQ0F=0;MQSBZ=1;SGB=-0.453602;VDB=0.76	GT:PL	1/1:77,6,0
-14	105861856	.	A	G	198.14	PASS	AC=1;AN=2;BQBZ=-6.94343;DP=104;DP4=1,31,3,57;MQ=60;MQ0F=0;MQBZ=0;MQSBZ=0;RPBZ=1.27833;SCBZ=2.84042;SGB=-0.693147;VDB=2.07952e-12	GT:PL	0/1:231,0,165
-14	105863225	.	T	G	167.42	PASS	AC=2;AN=2;DP=31;DP4=0,0,26,3;MQ=37;MQ0F=0.129032;MQSBZ=1.89654;SGB=-0.693079;VDB=0.00106396	GT:PL	1/1:197,87,0
-14	105863240	.	T	TACC	38.78	PASS	AC=2;AN=2;BQBZ=-2.08017;DP=31;DP4=19,3,7,0;IDV=7;IMF=0.225806;INDEL;MQ=37;MQ0F=0.129032;MQBZ=-0.893325;MQSBZ=1.89654;RPBZ=-1.78282;SCBZ=-1.58181;SGB=-0.636426;VDB=0.000186402	GT:PL	1/1:67,8,0
-14	105863241	.	G	A	70.05	PASS	AC=1;AN=2;BQBZ=3.06435;DP=14;DP4=7,0,4,1;MQ=43;MQ0F=0;MQBZ=2.26367;MQSBZ=0.807573;RPBZ=-2.89828;SCBZ=3.17606;SGB=-0.590765;VDB=0.00474791	GT:PL	0/1:103,0,27
-14	105863242	.	T	C	76.05	PASS	AC=1;AN=2;BQBZ=3.20416;DP=14;DP4=7,0,4,1;MQ=43;MQ0F=0;MQBZ=2.26367;MQSBZ=0.807573;RPBZ=-2.91421;SCBZ=3.17606;SGB=-0.590765;VDB=0.00429937	GT:PL	0/1:109,0,30
-14	105863243	.	A	C	88.92	PASS	AC=1;AN=2;BQBZ=3.20416;DP=14;DP4=7,0,4,1;MQ=43;MQ0F=0;MQBZ=2.26367;MQSBZ=0.807573;RPBZ=-2.89828;SCBZ=3.17606;SGB=-0.590765;VDB=0.00474791	GT:PL	0/1:122,0,30
-14	105863907	.	A	G	59.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,0,2;MQ=60;MQ0F=0;SGB=-0.453602;VDB=0.6	GT:PL	1/1:89,6,0
-14	105863916	.	A	C	58.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,0,2;MQ=60;MQ0F=0;SGB=-0.453602;VDB=0.64	GT:PL	1/1:88,6,0
-14	105864212	.	CA	C	56.41	PASS	AC=2;AN=2;DP=5;DP4=0,0,5,0;IDV=5;IMF=1;INDEL;MQ=24;MQ0F=0.2;SGB=-0.590765;VDB=0.00296109	GT:PL	1/1:86,15,0
-14	105885367	.	A	G	33.42	PASS	AC=2;AN=2;DP=3;DP4=0,0,1,2;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.511536;VDB=0.509904	GT:PL	1/1:63,9,0
-14	105986679	.	A	T	97.42	PASS	AC=2;AN=2;DP=25;DP4=0,0,25,0;MQ=58;MQ0F=0;SGB=-0.692914;VDB=0.661587	GT:PL	1/1:127,75,0
-14	105986887	.	TCCTGTGGAGAGAACACAGAAGTGGATGAGATCTCCCTGGACTGGACTCAATCTCTTTCTCATCACTGGGACTAGGGAGCCTCTTACCTGTGG	TCCTGTGG	201.08	PASS	AC=2;AN=2;BQBZ=-1.85772;DP=42;DP4=6,10,1,25;IDV=26;IMF=0.619048;INDEL;MQ=46;MQ0F=0;MQBZ=4.05602;MQSBZ=0.691497;RPBZ=-5.76313;SCBZ=0.70901;SGB=-0.692976;VDB=1.12783e-14	GT:PL	1/1:228,7,0
-14	106005399	.	CACCTGTAGAGAAGACACAGGAGTGGATGGAATTCCCCTTGACTGGCCTCGATCCCTTCCTCCTCACTGGGATTTGGCAGCCCCTTACCTGT	CACCTGT	166.42	PASS	AC=1;AN=2;BQBZ=-1.91014;DP=47;DP4=6,20,2,13;IDV=15;IMF=0.319149;INDEL;MQ=52;MQ0F=0;MQBZ=0.540615;MQSBZ=2.3192;RPBZ=-5.60032;SCBZ=-4.04839;SGB=-0.688148;VDB=2.2865e-08	GT:PL	0/1:199,0,11
-14	106062599	.	C	T	155.42	PASS	AC=2;AN=2;DP=12;DP4=0,0,3,7;MQ=48;MQ0F=0;MQSBZ=1.40859;SGB=-0.670168;VDB=0.000210222	GT:PL	1/1:185,30,0
-14	106116655	.	A	G	83.41	PASS	AC=2;AN=2;DP=24;DP4=0,0,24,0;MQ=51;MQ0F=0;SGB=-0.692831;VDB=1.53043e-12	GT:PL	1/1:113,72,0
-14	106116938	.	ACACCTGCAAACACAGAGACAACCTGGTCAGAAACTGCCACATATATTCACTGCTTATCTCACTCACGTCCACTCAATGTCTCTAGTTCTCCATAAATCACCT	ACACCT	85.02	PASS	AC=2;AN=2;BQBZ=-1.78748;DP=116;DP4=16,78,9,1;IDV=10;IMF=0.0862069;INDEL;MQ=45;MQ0F=0.0603448;MQBZ=-0.154398;MQSBZ=-3.1551;RPBZ=-5.86815;SCBZ=1.52121;SGB=-0.670168;VDB=8.33014e-05	GT:PL	1/1:114,161,0
-14	106268889	.	C	A	228.38	PASS	AC=2;AN=2;BQBZ=-1.05485;DP=89;DP4=1,2,9,64;MQ=19;MQ0F=0.191011;MQBZ=2.38799;MQSBZ=-2.68897;RPBZ=3.16586;SCBZ=1.03333;SGB=-0.693147;VDB=2.50303e-34	GT:PL	1/1:255,180,0
-14	106335196	.	A	G	66.40	PASS	AC=1;AN=2;BQBZ=-3.28094;DP=32;DP4=15,1,15,1;MQ=28;MQ0F=0;MQBZ=-2.31736;MQSBZ=0.863179;RPBZ=-3.13076;SCBZ=-0.066901;SGB=-0.689466;VDB=0.00436035	GT:PL	0/1:99,0,113
-14	106335277	.	G	A	74.29	PASS	AC=1;AN=2;BQBZ=-3.01795;DP=47;DP4=10,6,15,7;MQ=18;MQ0F=0.0212766;MQBZ=-0.20847;MQSBZ=-2.72746;RPBZ=-0.177666;SCBZ=0.761234;SGB=-0.692562;VDB=0.0118575	GT:PL	0/1:107,0,97
-14	106335278	.	C	G	87.22	PASS	AC=1;AN=2;BQBZ=0.398794;DP=48;DP4=10,6,15,8;MQ=18;MQ0F=0.0208333;MQBZ=-0.244342;MQSBZ=-2.84444;RPBZ=-0.328698;SCBZ=0.971224;SGB=-0.692717;VDB=0.0321418	GT:PL	0/1:120,0,95
-14	106373963	.	CCCTGTGAACAGAGAAACCCACAGTGAGCCCTGGGATCAGAGGCAGCATCTCATATCTTCATATCCGCATTCCTGAGACACTCAC	CC	30.37	PASS	AC=2;AN=2;BQBZ=-2.09176;DP=42;DP4=5,27,0,5;IDV=5;IMF=0.119048;INDEL;MQ=51;MQ0F=0.047619;MQBZ=0.958417;MQSBZ=2.5838;RPBZ=-3.82931;SCBZ=-2.66874;SGB=-0.590765;VDB=0.00231828	GT:PL	1/1:59,13,0
-14	106579047	.	TCCTGTGGGGGAGACACAAAATTTGAATCAGGGGCTCCTTTCCACCCGTTCTCCTCTGTGACCTCAAGCCCTCGGCAGGACTGACCT	TCCT	228.31	PASS	AC=2;AN=2;BQBZ=1.7794;DP=58;DP4=11,2,4,35;IDV=39;IMF=0.672414;INDEL;MQ=50;MQ0F=0;MQBZ=-0.828074;MQSBZ=-1.95587;RPBZ=-6.35386;SCBZ=-1.82608;SGB=-0.693144;VDB=2.93338e-18	GT:PL	1/1:255,1,0
-14	106593086	.	G	A	150.42	PASS	AC=2;AN=2;DP=20;DP4=0,0,2,13;MQ=29;MQ0F=0;MQSBZ=0.653913;SGB=-0.688148;VDB=2.19983e-09	GT:PL	1/1:180,45,0
-14	106606525	.	C	G	93.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,1,7;MQ=20;MQ0F=0;MQSBZ=-1.73205;SGB=-0.651104;VDB=2.13077e-05	GT:PL	1/1:123,24,0
-14	106627551	.	CCCTGTGAACAGAGAGACCCACAGTGAGCCCTGGGATCAGAGGCACCTCCCATATCCCCATGTCTGGATCCCTGAGATACTCAC	CC	106.34	PASS	AC=1;AN=2;BQBZ=-0.905256;DP=28;DP4=5,10,1,6;IDV=7;IMF=0.25;INDEL;MQ=46;MQ0F=0;MQBZ=1.34596;MQSBZ=2.10191;RPBZ=-4.11844;SCBZ=-2.87268;SGB=-0.636426;VDB=0.000415642	GT:PL	0/1:139,0,86
-14	106627617	.	G	C	54.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,0,3;MQ=60;MQ0F=0;SGB=-0.511536;VDB=0.0221621	GT:PL	1/1:84,9,0
-14	106627619	.	T	G	55.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,0,3;MQ=60;MQ0F=0;SGB=-0.511536;VDB=0.0221621	GT:PL	1/1:85,9,0
-14	106627622	.	C	T	53.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,0,3;MQ=60;MQ0F=0;SGB=-0.511536;VDB=0.0221621	GT:PL	1/1:83,9,0
-14	106627628	.	T	C	58.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,0,3;MQ=60;MQ0F=0;SGB=-0.511536;VDB=0.0221621	GT:PL	1/1:88,9,0
-14	106639427	.	CCCTGTGAACAGAGAGACCCACAGTGAGCCCTGGGATCAGAGGCACCTCCCATACCCCCATGTCTGGATCCCTGAGACACTCAC	CC	163.34	PASS	AC=2;AN=2;BQBZ=-1.39229;DP=10;DP4=0,4,1,4;IDV=4;IMF=0.4;INDEL;MQ=42;MQ0F=0;MQBZ=1.92897;MQSBZ=-1.43027;RPBZ=-2.65684;SCBZ=-1.88562;SGB=-0.590765;VDB=0.150948	GT:PL	1/1:190,1,0
-14	106657835	.	C	T	75.41	PASS	AC=2;AN=2;DP=8;DP4=0,0,8,0;MQ=47;MQ0F=0;SGB=-0.651104;VDB=0.308129	GT:PL	1/1:105,24,0
-14	106658177	.	A	G	170.42	PASS	AC=2;AN=2;DP=18;DP4=0,0,1,13;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.686358;VDB=4.38729e-08	GT:PL	1/1:200,42,0
-14	106762396	.	CACCTGTGGAGAGGACACAGGGGTGAATAAAATCCTCTTTAACTAAACCAGGATCCCTTCCTCAGCCTTAGGACTAGGAAGCCCCTTACCTGT	CACCTGT	228.30	PASS	AC=2;AN=2;BQBZ=-1.75588;DP=53;DP4=4,3,4,37;IDV=41;IMF=0.773585;INDEL;MQ=25;MQ0F=0.132075;MQBZ=3.10145;MQSBZ=0.035703;RPBZ=-5.30295;SCBZ=-2.25263;SGB=-0.693145;VDB=5.58099e-24	GT:PL	1/1:255,66,0
-2	88862420	.	C	A	119.42	PASS	AC=2;AN=2;DP=7;DP4=0,0,1,4;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.590765;VDB=0.0886428	GT:PL	1/1:149,15,0
-2	88947417	.	C	A	33.42	PASS	AC=2;AN=2;DP=3;DP4=0,0,3,0;MQ=60;MQ0F=0;SGB=-0.511536;VDB=0.460446	GT:PL	1/1:63,9,0
-2	88947419	.	C	G	36.42	PASS	AC=2;AN=2;DP=3;DP4=0,0,3,0;MQ=60;MQ0F=0;SGB=-0.511536;VDB=0.450604	GT:PL	1/1:66,9,0
-2	88947433	.	C	T	45.41	PASS	AC=2;AN=2;DP=4;DP4=0,0,4,0;MQ=60;MQ0F=0;SGB=-0.556411;VDB=0.38486	GT:PL	1/1:75,12,0
-2	88947501	.	T	C	182.42	PASS	AC=2;AN=2;DP=11;DP4=0,0,4,2;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.616816;VDB=0.299032	GT:PL	1/1:212,18,0
-2	88947503	.	C	G	191.42	PASS	AC=2;AN=2;DP=11;DP4=0,0,4,2;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.616816;VDB=0.30506	GT:PL	1/1:221,18,0
-2	88947549	.	C	T	164.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,3,3;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.616816;VDB=0.00464265	GT:PL	1/1:194,18,0
-2	88966502	.	A	T	77.41	PASS	AC=2;AN=2;DP=20;DP4=0,0,2,10;MQ=14;MQ0F=0;MQSBZ=-2.17513;SGB=-0.680642;VDB=1.0381e-05	GT:PL	1/1:107,36,0
-2	88992663	.	A	G	225.42	PASS	AC=2;AN=2;DP=55;DP4=0,0,7,35;MQ=58;MQ0F=0;MQSBZ=2.78991;SGB=-0.693146;VDB=2.27852e-21	GT:PL	1/1:255,126,0
-2	88992682	.	C	T	225.42	PASS	AC=2;AN=2;DP=51;DP4=0,0,6,36;MQ=59;MQ0F=0;MQSBZ=2.11697;SGB=-0.693146;VDB=4.99036e-24	GT:PL	1/1:255,126,0
-2	89010265	.	T	G	225.42	PASS	AC=2;AN=2;DP=23;DP4=0,0,5,11;MQ=40;MQ0F=0.0434783;MQSBZ=-0.287916;SGB=-0.689466;VDB=8.7428e-09	GT:PL	1/1:255,48,0
-2	89143115	.	C	G	112.20	PASS	AC=1;AN=2;BQBZ=-8.72792;DP=128;DP4=10,32,10,70;MQ=14;MQ0F=0.078125;MQBZ=-1.94748;MQSBZ=-0.963436;RPBZ=-0.0822574;SCBZ=-0.477713;SGB=-0.693147;VDB=2.9762e-32	GT:PL	0/1:145,0,81
-2	89234486	.	G	A	33.42	PASS	AC=2;AN=2;DP=9;DP4=0,0,2,5;MQ=11;MQ0F=0.111111;MQSBZ=-2.13664;SGB=-0.636426;VDB=0.00217556	GT:PL	1/1:63,21,0
-22	22196050	.	G	C	225.42	PASS	AC=2;AN=2;DP=22;DP4=0,0,8,5;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.683931;VDB=0.062152	GT:PL	1/1:255,39,0
-22	22196110	.	G	T	225.42	PASS	AC=2;AN=2;DP=17;DP4=0,0,4,8;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.680642;VDB=0.551461	GT:PL	1/1:255,36,0
-22	22358119	.	T	G	81.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,0,10;MQ=30;MQ0F=0.1;SGB=-0.670168;VDB=0.690639	GT:PL	1/1:111,30,0
-22	22369973	.	A	C	97.42	PASS	AC=2;AN=2;DP=15;DP4=0,0,0,15;MQ=56;MQ0F=0;SGB=-0.688148;VDB=0.336237	GT:PL	1/1:127,45,0
-22	22370026	.	T	C	84.42	PASS	AC=2;AN=2;DP=18;DP4=0,0,0,18;MQ=57;MQ0F=0;SGB=-0.691153;VDB=0.118776	GT:PL	1/1:114,54,0
-22	22759070	.	G	T	84.42	PASS	AC=2;AN=2;DP=8;DP4=0,0,0,6;MQ=50;MQ0F=0.125;SGB=-0.616816;VDB=0.111502	GT:PL	1/1:114,18,0
-22	22887821	.	C	T	225.42	PASS	AC=2;AN=2;DP=26;DP4=0,0,15,3;MQ=60;MQ0F=0;MQSBZ=0;SGB=-0.691153;VDB=2.55391e-08	GT:PL	1/1:255,54,0
-22	22904136	.	G	A	55.41	PASS	AC=2;AN=2;DP=6;DP4=0,0,1,2;MQ=47;MQ0F=0;MQSBZ=0;SGB=-0.511536;VDB=0.102722	GT:PL	1/1:85,9,0
-22	22919554	.	A	C	215.42	PASS	AC=2;AN=2;DP=12;DP4=0,0,3,4;MQ=50;MQ0F=0;MQSBZ=2.22288;SGB=-0.636426;VDB=0.000186402	GT:PL	1/1:245,21,0
-22	22919647	.	G	A	195.42	PASS	AC=2;AN=2;DP=12;DP4=0,0,3,4;MQ=50;MQ0F=0;MQSBZ=2.22288;SGB=-0.636426;VDB=0.00663729	GT:PL	1/1:225,21,0
-22	22919684	.	A	G	178.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,3,3;MQ=50;MQ0F=0;MQSBZ=2.12132;SGB=-0.616816;VDB=0.0147072	GT:PL	1/1:208,18,0
+14	105648340	.	C	G	153.07	PASS	AC=1;AN=2;BQBZ=-0.697486;DP=11;DP4=0,1,3,4;FS=0;MQ=60;MQ0F=0;RPBZ=-0.936329;SCBZ=-1.56525;SGB=-0.636426;VDB=0.000145287	GT:PL	0/1:188,0,31
+14	105861856	.	A	G	218.14	PASS	AC=1;AN=2;BQBZ=-7.1583;DP=102;DP4=1,31,3,56;FS=0;MQ=60;MQ0F=0;RPBZ=1.20832;SCBZ=2.7385;SGB=-0.693147;VDB=4.11531e-12	GT:PL	0/1:251,0,192
+14	105863225	.	T	G	191.42	PASS	AC=2;AN=2;DP=29;DP4=0,0,25,3;FS=0;MQ=33;MQ0F=0.172414;MQSBZ=1.59084;SGB=-0.693054;VDB=0.000290298	GT:PL	1/1:221,84,0
+14	105863240	.	T	TACC	64.98	PASS	AC=2;AN=2;DP=29;DP4=4,1,8,0;FS=0;IDV=8;IMF=0.275862;INDEL;MQ=40;MQ0F=0.0344828;MQBZ=-0.849195;MQSBZ=1.59084;RPBZ=-2.31967;SCBZ=-1.48391;SGB=-0.651104;VDB=0.484574	GT:PL	1/1:94,0,3
+14	105863241	.	G	A	42.39	PASS	AC=1;AN=2;BQBZ=3.05698;DP=13;DP4=8,0,3,1;FS=0;MQ=38;MQ0F=0.0769231;MQBZ=2.17556;MQSBZ=0.927663;RPBZ=-2.82309;SCBZ=3.24152;SGB=-0.556411;VDB=0.00911214	GT:PL	0/1:75,0,39
+14	105863242	.	T	C	49.37	PASS	AC=1;AN=2;BQBZ=2.93008;DP=13;DP4=8,0,3,1;FS=0;MQ=38;MQ0F=0.0769231;MQBZ=2.17556;MQSBZ=0.927663;RPBZ=-2.8392;SCBZ=3.24152;SGB=-0.556411;VDB=0.00992398	GT:PL	0/1:82,0,39
+14	105863243	.	A	C	57.33	PASS	AC=1;AN=2;BQBZ=2.93008;DP=13;DP4=8,0,3,1;FS=0;MQ=38;MQ0F=0.0769231;MQBZ=2.17556;MQSBZ=0.927663;RPBZ=-2.82309;SCBZ=3.24152;SGB=-0.556411;VDB=0.00911214	GT:PL	0/1:90,0,39
+14	105986679	.	A	T	103.41	PASS	AC=2;AN=2;DP=25;DP4=0,0,25,0;FS=0;MQ=58;MQ0F=0;SGB=-0.692914;VDB=0.694665	GT:PL	1/1:133,75,0
+14	105986887	.	TCCTGTGGAGAGAACACAGAAGTGGATGAGATCTCCCTGGACTGGACTCAATCTCTTTCTCATCACTGGGACTAGGGAGCCTCTTACCTGTGG	TCCTGTGG	225.42	PASS	AC=2;AN=2;DP=34;DP4=0,0,1,25;FS=0;IDV=26;IMF=0.764706;INDEL;MQ=54;MQ0F=0;MQBZ=2.04104;MQSBZ=-1.21036;RPBZ=-4.83477;SCBZ=-3.46815;SGB=-0.692976;VDB=1.04321e-14	GT:PL	1/1:255,78,0
+14	106005399	.	CACCTGTAGAGAAGACACAGGAGTGGATGGAATTCCCCTTGACTGGCCTCGATCCCTTCCTCCTCACTGGGATTTGGCAGCCCCTTACCTGT	CACCTGT	168.42	PASS	AC=2;AN=2;DP=30;DP4=0,0,0,12;FS=0;IDV=12;IMF=0.4;INDEL;MQ=53;MQ0F=0;MQBZ=-2.19578;MQSBZ=-0.282843;RPBZ=-5.0056;SCBZ=-5.07509;SGB=-0.680642;VDB=4.4477e-08	GT:PL	1/1:198,36,0
+14	106116655	.	A	G	97.42	PASS	AC=2;AN=2;DP=24;DP4=0,0,24,0;FS=0;MQ=51;MQ0F=0;SGB=-0.692831;VDB=1.67813e-12	GT:PL	1/1:127,72,0
+14	106116938	.	ACACCTGCAAACACAGAGACAACCTGGTCAGAAACTGCCACATATATTCACTGCTTATCTCACTCACGTCCACTCAATGTCTCTAGTTCTCCATAAATCACCT	ACACCT	175.42	PASS	AC=2;AN=2;DP=92;DP4=0,0,9,1;FS=0;IDV=10;IMF=0.108696;INDEL;MQ=44;MQ0F=0;MQBZ=-0.149017;MQSBZ=-3.82983;RPBZ=-6.66165;SCBZ=1.0337;SGB=-0.670168;VDB=7.63746e-05	GT:PL	1/1:205,30,0
+14	106268889	.	C	A	228.38	PASS	AC=2;AN=2;BQBZ=-0.966106;DP=89;DP4=0,3,9,64;FS=0;MQ=19;MQ0F=0.191011;MQBZ=2.38799;MQSBZ=-3.2929;RPBZ=2.61657;SCBZ=1.03333;SGB=-0.693147;VDB=2.38165e-34	GT:PL	1/1:255,180,0
+14	106335196	.	A	G	74.32	PASS	AC=1;AN=2;BQBZ=-3.13187;DP=36;DP4=19,1,15,1;FS=0;MQ=29;MQ0F=0;MQBZ=-3.23989;MQSBZ=0.591492;RPBZ=-2.93077;SCBZ=0.15634;SGB=-0.689466;VDB=0.00541603	GT:PL	0/1:107,0,126
+14	106335277	.	G	A	83.37	PASS	AC=1;AN=2;BQBZ=-3.10477;DP=51;DP4=12,7,19,6;FS=0;MQ=20;MQ0F=0.0196078;MQBZ=-1.44246;MQSBZ=-3.10616;RPBZ=-0.510248;SCBZ=0.45241;SGB=-0.692914;VDB=0.00614392	GT:PL	0/1:116,0,123
+14	106335278	.	C	G	93.35	PASS	AC=1;AN=2;BQBZ=0.77071;DP=53;DP4=12,7,18,6;FS=0;MQ=20;MQ0F=0.0188679;MQBZ=-1.34071;MQSBZ=-3.17875;RPBZ=-0.477556;SCBZ=0.366804;SGB=-0.692831;VDB=0.00773612	GT:PL	0/1:126,0,120
+14	106349591	.	CCCTGTGAACAGAGAGACCCACAGTGAGCCCTGGGCTCAGAGGCACCTCCCATATCTCCATGTCTGCAGCCTTGAGACACTCAC	CC	89.42	PASS	AC=2;AN=2;DP=18;DP4=0,0,0,4;FS=0;IDV=4;IMF=0.222222;INDEL;MQ=34;MQ0F=0.0555556;MQBZ=-3.43273;MQSBZ=-0.728423;RPBZ=-3.4004;SCBZ=-3.55226;SGB=-0.556411;VDB=0.00992398	GT:PL	1/1:119,12,0
+14	106373963	.	CCCTGTGAACAGAGAAACCCACAGTGAGCCCTGGGATCAGAGGCAGCATCTCATATCTTCATATCCGCATTCCTGAGACACTCAC	CC	91.35	PASS	AC=1;AN=2;DP=34;DP4=0,1,0,5;FS=0;IDV=5;IMF=0.147059;INDEL;MQ=60;MQ0F=0;RPBZ=-4.23095;SCBZ=-4.41955;SGB=-0.590765;VDB=0.0451409	GT:PL	0/1:125,0,10
+14	106579047	.	TCCTGTGGGGGAGACACAAAATTTGAATCAGGGGCTCCTTTCCACCCGTTCTCCTCTGTGACCTCAAGCCCTCGGCAGGACTGACCT	TCCT	228.20	PASS	AC=2;AN=2;DP=53;DP4=3,0,3,35;FS=0;IDV=38;IMF=0.716981;INDEL;MQ=50;MQ0F=0;MQBZ=-0.819174;MQSBZ=-2.43926;RPBZ=-5.89064;SCBZ=-3.70407;SGB=-0.693143;VDB=2.62975e-15	GT:PL	1/1:255,51,0
+14	106579050	.	TG	T	59.41	PASS	AC=2;AN=2;DP=53;DP4=0,0,3,0;FS=0;IDV=3;IMF=0.0566038;INDEL;MQ=60;MQ0F=0;MQBZ=1.23187;RPBZ=2.0247;SCBZ=-2.99732;SGB=-0.511536;VDB=0.0221621	GT:PL	1/1:89,9,0
+14	106593086	.	G	A	128.42	PASS	AC=2;AN=2;DP=13;DP4=0,0,1,9;FS=0;MQ=31;MQ0F=0;MQSBZ=-0.496904;SGB=-0.670168;VDB=1.51066e-06	GT:PL	1/1:158,30,0
+14	106627419	.	T	G	36.22	PASS	AC=1;AN=2;BQBZ=-1.18248;DP=26;DP4=7,5,0,3;FS=0;MQ=44;MQ0F=0;MQBZ=2.03191;MQSBZ=1.93084;RPBZ=-2.1807;SCBZ=-0.663901;SGB=-0.511536;VDB=0.0221621	GT:PL	0/1:70,0,224
+14	106627421	.	G	C	32.98	PASS	AC=1;AN=2;BQBZ=-1.32363;DP=27;DP4=6,7,0,3;FS=0;MQ=45;MQ0F=0;MQBZ=1.91134;MQSBZ=2.62536;RPBZ=-1.42205;SCBZ=-0.834007;SGB=-0.511536;VDB=0.0221621	GT:PL	0/1:67,0,234
+14	106627551	.	CCCTGTGAACAGAGAGACCCACAGTGAGCCCTGGGATCAGAGGCACCTCCCATATCCCCATGTCTGGATCCCTGAGATACTCAC	CC	76.19	PASS	AC=1;AN=2;DP=23;DP4=2,3,0,5;FS=0;IDV=5;IMF=0.217391;INDEL;MQ=56;MQ0F=0;MQBZ=1.18457;MQSBZ=1.93007;RPBZ=-3.51209;SCBZ=-2.43059;SGB=-0.590765;VDB=1.11291e-05	GT:PL	0/1:109,0,72
+14	106658177	.	A	G	121.42	PASS	AC=2;AN=2;DP=13;DP4=0,0,1,11;FS=0;MQ=55;MQ0F=0;MQSBZ=3.31662;SGB=-0.680642;VDB=0.000125962	GT:PL	1/1:151,36,0
+14	106762396	.	CACCTGTGGAGAGGACACAGGGGTGAATAAAATCCTCTTTAACTAAACCAGGATCCCTTCCTCAGCCTTAGGACTAGGAAGCCCCTTACCTGT	CACCTGT	225.42	PASS	AC=2;AN=2;DP=50;DP4=0,0,2,37;FS=0;IDV=39;IMF=0.78;INDEL;MQ=28;MQ0F=0.04;MQBZ=2.7394;MQSBZ=2.16481;RPBZ=-5.10933;SCBZ=-5.36435;SGB=-0.693144;VDB=2.61105e-18	GT:PL	1/1:255,117,0
+2	88966502	.	A	T	78.41	PASS	AC=2;AN=2;DP=16;DP4=0,0,2,8;FS=0;MQ=16;MQ0F=0;MQSBZ=-2.12798;SGB=-0.670168;VDB=1.93216e-05	GT:PL	1/1:108,30,0
+2	88992663	.	A	G	225.42	PASS	AC=2;AN=2;DP=49;DP4=0,0,6,34;FS=0;MQ=59;MQ0F=0;MQSBZ=2.03691;SGB=-0.693145;VDB=2.93334e-18	GT:PL	1/1:255,120,0
+2	88992682	.	C	T	225.42	PASS	AC=2;AN=2;DP=46;DP4=0,0,5,35;FS=0;MQ=59;MQ0F=0;MQSBZ=1.02965;SGB=-0.693145;VDB=7.76815e-21	GT:PL	1/1:255,120,0
+2	89010265	.	T	G	166.42	PASS	AC=2;AN=2;DP=11;DP4=0,0,1,8;FS=0;MQ=52;MQ0F=0;MQSBZ=-1.70561;SGB=-0.662043;VDB=1.07499e-05	GT:PL	1/1:196,27,0
+2	89143115	.	C	G	30.99	PASS	AC=1;AN=2;BQBZ=-7.45812;DP=87;DP4=2,22,4,59;FS=0;MQ=14;MQ0F=0.0344828;MQBZ=-2.81885;MQSBZ=0.263023;RPBZ=0.291504;SGB=-0.693147;VDB=7.30417e-33	GT:PL	0/1:64,0,37
+22	22098804	.	CAGGTCAGGGGAAGGGACTCTATCCCTGGGGGACCACAGAAAACAGGGTCCAGGTTACTCTCATCCTCATGATCATAACTGTGTCTCTCCTGTTCGTTTTAGG	CAGG	90.42	PASS	AC=2;AN=2;DP=14;DP4=0,0,1,1;FS=0;IDV=2;IMF=0.142857;INDEL;MQ=60;MQ0F=0;RPBZ=-2.24069;SCBZ=3.60555;SGB=-0.453602;VDB=0.02	GT:PL	1/1:120,6,0
+22	22196050	.	G	C	225.42	PASS	AC=2;AN=2;DP=20;DP4=0,0,8,4;FS=0;MQ=60;MQ0F=0;SGB=-0.680642;VDB=0.0242683	GT:PL	1/1:255,36,0
+22	22196110	.	G	T	225.42	PASS	AC=2;AN=2;DP=17;DP4=0,0,4,8;FS=0;MQ=60;MQ0F=0;SGB=-0.680642;VDB=0.56343	GT:PL	1/1:255,36,0
+22	22358119	.	T	G	90.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,0,10;FS=0;MQ=30;MQ0F=0.1;SGB=-0.670168;VDB=0.705724	GT:PL	1/1:120,30,0
+22	22369973	.	A	C	108.41	PASS	AC=2;AN=2;DP=15;DP4=0,0,0,15;FS=0;MQ=56;MQ0F=0;SGB=-0.688148;VDB=0.360966	GT:PL	1/1:138,45,0
+22	22370026	.	T	C	100.42	PASS	AC=2;AN=2;DP=18;DP4=0,0,0,18;FS=0;MQ=57;MQ0F=0;SGB=-0.691153;VDB=0.138282	GT:PL	1/1:130,54,0
+22	22887821	.	C	T	198.42	PASS	AC=2;AN=2;DP=16;DP4=0,0,12,1;FS=0;MQ=60;MQ0F=0;SGB=-0.683931;VDB=7.69164e-07	GT:PL	1/1:228,39,0
+22	22919554	.	A	C	188.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,3,3;FS=0;MQ=50;MQ0F=0;MQSBZ=2.12132;SGB=-0.616816;VDB=0.000780428	GT:PL	1/1:218,18,0
+22	22919647	.	G	A	188.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,3,3;FS=0;MQ=50;MQ0F=0;MQSBZ=2.12132;SGB=-0.616816;VDB=0.00740154	GT:PL	1/1:218,18,0
+22	22919684	.	A	G	186.42	PASS	AC=2;AN=2;DP=10;DP4=0,0,3,3;FS=0;MQ=50;MQ0F=0;MQSBZ=2.12132;SGB=-0.616816;VDB=0.0167502	GT:PL	1/1:216,18,0

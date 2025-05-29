@@ -23,6 +23,8 @@ for VCF in "${FILES[@]}"; do
     --filter-name "LowQual" \
     --filter-expression "DP > 500" \
     --filter-name "HighDepth" \
+    --filter-expression "DP < 10" \
+    --filter-name "LowDepth" \
     --filter-expression "vc.getNAlleles() > 2" \
     --filter-name "MultiAllelic" \
     -O "$FILTERED_VCF"
