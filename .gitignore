@@ -1,0 +1,15 @@
+
+*.log
+
+.DS_Store
+.pac
+.RData
+.RHistory
+
+Data/BQSR/
+Data/fastqc_reports/
+Data/known_sites
+Data/multiqc_data
+Data/raw_data/
+Data/ref_data/
+Data/trimmed_data
