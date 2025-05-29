@@ -13,6 +13,7 @@ for BSQR_BAM in Data/BQSR/*/*.bam; do
         | bcftools call -mv -Oz -o "${OUTDIR}/${SAMPLE}_variants.vcf.gz"
 
     bcftools index "${OUTDIR}/${SAMPLE}_variants.vcf.gz"
+    gzip -d "${OUTDIR}/${SAMPLE}_variants.vcf.gz"
 
     echo "BCF Variant Calling for: $SAMPLE finished successfully"
     echo "-----------------------------------------------------------"

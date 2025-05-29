@@ -1,0 +1,3 @@
+Sample	A>C
+SRR32572150_variants	1.0
+SRR32572151_variants	0.0

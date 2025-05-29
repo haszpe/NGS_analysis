@@ -1,0 +1,3 @@
+Module	Section	Sample Name	Source
+Bcftools	stats	SRR32572150_variants	/mnt/ngs-analysis/Data/BcfVariantCalling/stats_SRR32572150_variants.txt
+Bcftools	stats	SRR32572151_variants	/mnt/ngs-analysis/Data/BcfVariantCalling/stats_SRR32572151_variants.txt

@@ -1,0 +1,3 @@
+Sample	0	1
+SRR32572150_variants	(-1, 1)	(0, None)
+SRR32572151_variants	(0, None)	

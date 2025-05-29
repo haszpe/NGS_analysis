@@ -12,9 +12,10 @@ for BSQR_BAM in Data/BQSR/*/*.bam; do
     gatk HaplotypeCaller \
         -R "$REF" \
         -I "$BSQR_BAM" \
-        -O "${OUTDIR}/${SAMPLE}_variants.g.vcf.gz" \
+        -O "${OUTDIR}/${SAMPLE}_variants.vcf.gz" \
         -ERC GVCF
-
+	
+    gzip -d "${OUTDIR}/${SAMPLE}_variants.vcf.gz"
     echo "Variant Calling for: $SAMPLE finished successfully"
     echo "-----------------------------------------------------------"
 done
