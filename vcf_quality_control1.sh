@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Foldery z plikami VCF
 FOLDER_GATK="Data/GatkVariantCalling"
 FOLDER_BCF="Data/BcfVariantCalling"
 
