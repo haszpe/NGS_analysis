@@ -107,7 +107,17 @@ Przeprowadza ponowanie BaseRecalibraiton w celu porównania jakości wyników BQ
 
 ### 13. Functional analysis with G-Profile
 
+Zidentyfikowano najbardziej istotne kategorie funkcjonalne wykazujące zmiany:
+- antigen binding / adaptive immune response (GO:MF:0003823, GO:BP:0002250)
+  - Powiązane z rozpoznawaniem antygenów i inicjację odpowiedzi immunologiczne.
+  -  Takie polimorfizmy mogą wpływać na zdolność do rozpoznawania patogenów i efektywność odpowiedzi odpornościowej
 
+- immunoglobulin complex (GO:CC:0019814)
+  - Zmiany składu, stabilności lub funkcji kompleksów immunoglobulinowych.
+  - Mogą zaburzać zdolność wiązania patogenów oraz zmiany w poziomie aktywności układu odpornościowego.
 
+- extracellular region / plasma membrane / blood microparticle
+   - Te zmiany mogą powodować zaburzenie komunikacji między komórkami odpornościowymi i  przekazywania sygnałów zapalnych
+   - Mogą też zwiększyć przepuszczalność nabłonka oddechowego (co sprzyja kolonizacji przez bakterie).
 
 
