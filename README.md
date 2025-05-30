@@ -71,11 +71,12 @@ Z wykorzystaniem narzędzi BaseRecalibration i ApplyBQSR z pakietu GATK oraz ind
 ### 9. Analiza kowariancji (skrypt analyze_covariates.sh)
 Przeprowadza ponowanie BaseRecalibraiton w celu porównania jakości wyników BQSR. 
 
-## TODO: dodać plot z raportu
-
 ### 10. Variant Calling V.1 z użyciem HaplotypeCaller GATK (skrypt gatk_variant_calling.sh) 
 
 ### 11. Variant Calling V.2 z użyciem mpileup BCFTools (skrypt bcf_variant_calling.sh) 
+### 12. Variant Effect Predictor - web tool from ensemble
+### 13. Functional analysis with G-Profile
+
 
 
 
