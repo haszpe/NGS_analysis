@@ -9,12 +9,14 @@ Projekt odpowiada na pytanie, czy izolacja naturalnych, wysokospecyficznych prz
 
 ## Etapy analizy
 
+Cały pipeline może zostać uruchomiony na raz poprzez [Main](./main_pipeline.sh)
+
 ### 1. Pobranie surowych danych eksperymentalnych z użyciem Fasta-Dump
 Dane zostały ograniczone do dwóch próbek pochodzących od dwóch różnych osób, wykazujących różne natężenie zakażeń PA.
 
 `fastq-dump --split-files -X 1000000 --gzip --progress SRR32572150 SRR32572151`
 
-### 2. Przygotowanie  danych referencyjnych i VCF 
+### 2. Przygotowanie  danych referencyjnych i VCF (zob. [data preparation](./prepare_references.sh))
 Homo Sapiens Primary Assembly:
 
 
@@ -36,7 +38,7 @@ gatk IndexFeatureFile -I homo_sapiens_somatic.vcf
 ### 3. Weryfikacja jakości danych przy pomocy FastQC 
 `fastqc -o reports/ *.fastq`
 
-### 4. Trymowanie danych przy pomocy Trimmomatic (skrypt trimming.sh)
+### 4. Trymowanie danych przy pomocy Trimmomatic (zob. [trimming](./trimming.sh) )
 Z wykorzystaniem parametrów trymowania:
 - PE -phred33
 - ILLUMINACLIP:/usr/local/bin/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10
@@ -44,10 +46,18 @@ Z wykorzystaniem parametrów trymowania:
 
 *kolejność komend ma znaczenie*
 
-### 5. Weryfikacja jakości strymowanych danych przy pomocy FastQC i wizualizacja raportów z MultiGC
-`tutaj dorzucić zdjęcie`
+W efekcie uzyskano:
 
-### 6. Alignment (skrypt alignment.sh) i dodanie Read Groups
+| Próbka       | Input Read Pairs | Both Surviving (%) | Forward Only Surviving (%) | Reverse Only Surviving (%) | Dropped (%) |
+|--------------|------------------|---------------------|-----------------------------|-----------------------------|--------------|
+| SRR32572150  | 58,906           | 12,996 (22.06%)     | 38,818 (65.90%)             | 846 (1.44%)                 | 6,246 (10.60%) |
+| SRR32572151  | 116,294          | 4,783 (4.11%)       | 102,274 (87.94%)            | 98 (0.08%)                  | 9,139 (7.86%)  |
+
+
+### 5. Weryfikacja jakości strymowanych danych przy pomocy FastQC i wizualizacja raportów z MultiGC
+
+
+### 6. Alignment (zob. [alignment](./alignment.sh) ) i dodanie Read Groups
 Nagłówki danych użyte do zidentyfikowania ReadGroups:
 
 ```
@@ -57,7 +67,7 @@ Alignment przeprowadzony z wykorzystaniem `bwa mem`
 
 `bwa mem -R "@RG\\tID:${instrument}.${lane}\\tSM:${base_name}\\tPL:ILLUMINA\\tLB:lib1\\tPU:${instrument}.${lane}.${base_name}" ${REF} ${R1} ${R2} > "$ALIGN_DIR/${base_name}.sam"`
 
-### 7. Post-alignemnt (skrypt post_align.sh) 
+### 7. Post-alignemnt (zob. [post alignment](./post_align.sh) )
 Etap składający się z kilku kroków (wykorzystujących pakiet samtools):
 - sort
 - fixmate
@@ -65,18 +75,36 @@ Etap składający się z kilku kroków (wykorzystujących pakiet samtools):
 - markdup
 - index
 - flagstat
-- septh
+- depth
 
-### 8. Base Quality Score Recalibration with GATK (skrypt bgsr.sh)
+### 8. Base Quality Score Recalibration with GATK (zob. [BGSR](./bgsr.sh))
 Z wykorzystaniem narzędzi BaseRecalibration i ApplyBQSR z pakietu GATK oraz indexowanie plików .bam z użyciem samtools.
 
-### 9. Analiza kowariancji (skrypt analyze_covariates.sh)
+### 9. Analiza kowariancji (zob. [analyze covariates](./analyze_covariates.sh))
 Przeprowadza ponowanie BaseRecalibraiton w celu porównania jakości wyników BQSR. 
 
-### 10. Variant Calling V.1 z użyciem HaplotypeCaller GATK (skrypt gatk_variant_calling.sh) 
 
-### 11. Variant Calling V.2 z użyciem mpileup BCFTools (skrypt bcf_variant_calling.sh) 
+### 10. Variant Calling V.1 z użyciem HaplotypeCaller GATK (zob. [GATK cariant calling](./gatk_variant_calling.sh) )
+
+| Sample       | Variants Identified | Variants Filtered | Variants After Filtration |
+|--------------|---------------------|--------------------|----------------------------|
+| SRR32572150  | 208                 | 71 (34%)           | 137                        |
+| SRR32572151  | 115                 | 61 (53%)           | 54                         |
+
+
+### 11. Variant Calling V.2 z użyciem mpileup BCFTools (zob. [BCF variant calling](./bcf_variant_calling.sh) )
+
+| Sample       | Variants Identified | Variants Filtered | Variants After Filtration |
+|--------------|---------------------|--------------------|----------------------------|
+| SRR32572150  | 182                 | 78 (43%)           | 104                        |
+| SRR32572151  | 96                  | 55 (57%)           | 41                         |
+
+
 ### 12. Variant Effect Predictor - web tool from ensemble
+
+
+
+
 ### 13. Functional analysis with G-Profile
 
 
