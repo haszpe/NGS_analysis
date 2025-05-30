@@ -80,6 +80,17 @@ Etap składający się z kilku kroków (wykorzystujących pakiet samtools):
 ### 8. Base Quality Score Recalibration with GATK (zob. [BGSR](./bgsr.sh))
 Z wykorzystaniem narzędzi BaseRecalibration i ApplyBQSR z pakietu GATK oraz indexowanie plików .bam z użyciem samtools.
 
+Sample: SRR32572150
+
+<img src="./img/SRR32572150_BQSR.png" alt="Wykres" width="600"/>
+
+
+Sample: SRR32572151
+
+<img src="./img/SRR32572151_BQSR.png" alt="Wykres" width="600"/>
+
+
+
 ### 9. Analiza kowariancji (zob. [analyze covariates](./analyze_covariates.sh))
 Przeprowadza ponowanie BaseRecalibraiton w celu porównania jakości wyników BQSR. 
 
