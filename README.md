@@ -42,6 +42,8 @@ Z wykorzystaniem parametrów trymowania:
 - ILLUMINACLIP:/usr/local/bin/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10
 - LEADING:10 TRAILING:10 SLIDINGWINDOW:5:30 MINLEN:70
 
+*kolejność komend ma znaczenie*
+
 ### 5. Weryfikacja jakości strymowanych danych przy pomocy FastQC i wizualizacja raportów z MultiGC
 `tutaj dorzucić zdjęcie`
 
